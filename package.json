@@ -1,0 +1,102 @@
+{
+  "name": "hermes-ai-desktop",
+  "private": true,
+  "version": "3.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "shortcut": "node scripts/createShortcut.cjs",
+    "shortcut:prod": "node scripts/createShortcut.cjs && vite build && vite preview",
+    "electron:dev": "electron . --dev",
+    "electron:build": "vite build && electron-builder build",
+    "electron:preview": "vite build && electron .",
+    "prepare": "electron-builder install-app-deps"
+  },
+  "dependencies": {
+    "@prisma/adapter-better-sqlite3": "^7.8.0",
+    "@prisma/client": "^7.8.0",
+    "@prisma/config": "^7.8.0",
+    "@types/react-syntax-highlighter": "^15.5.13",
+    "better-sqlite3": "^11.1.0",
+    "clsx": "2.1.1",
+    "electron-store": "^10.0.0",
+    "electron-updater": "^6.6.7",
+    "framer-motion": "^12.38.0",
+    "lucide-react": "^1.11.0",
+    "prisma": "^5.15.0",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-markdown": "^10.1.0",
+    "react-resizable-panels": "^4.10.0",
+    "react-syntax-highlighter": "^16.1.1",
+    "remark-gfm": "^4.0.1",
+    "tailwind-merge": "3.4.0",
+    "zustand": "^5.0.12"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "4.1.17",
+    "@types/node": "22.19.17",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "5.1.1",
+    "better-sqlite3": "^12.9.0",
+    "electron": "^34.0.0",
+    "electron-builder": "^24.13.3",
+    "electron-store": "^11.0.2",
+    "electron-updater": "^6.8.3",
+    "prisma": "^7.8.0",
+    "tailwindcss": "4.1.17",
+    "typescript": "5.9.3",
+    "vite": "7.2.4",
+    "vite-plugin-singlefile": "2.3.0"
+  },
+  "main": "electron/main.js",
+  "build": {
+    "appId": "com.hermesai.desktop",
+    "productName": "Hermes AI Desktop",
+    "directories": {
+      "output": "dist-electron-v2"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "prisma/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "icon": "build/icon.icns"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "build/icon.ico"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "icon": "build/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "hermes-ai",
+      "repo": "hermes-desktop"
+    }
+  }
+}

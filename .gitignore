@@ -1,0 +1,7 @@
+# Ignore build output and binaries
+/dist-electron/
+/dist-electron-v2/
+/node_modules/
+.env
+.DS_Store
+*.log

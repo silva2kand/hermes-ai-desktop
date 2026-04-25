@@ -1,0 +1,165 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code, pre, kbd, .font-mono {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.15);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+/* Animations */
+@keyframes bounce {
+  0%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-6px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 4px rgba(59, 130, 246, 0.4); }
+  50% { box-shadow: 0 0 12px rgba(59, 130, 246, 0.7); }
+}
+
+@keyframes stream-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Message animation */
+.message-enter {
+  animation: fadeIn 0.25s ease-out;
+}
+
+/* Sidebar slide */
+.sidebar-enter {
+  animation: slideIn 0.2s ease-out;
+}
+
+/* Smooth panel transitions */
+.panel-transition {
+  transition: all 0.2s ease;
+}
+
+/* Prose overrides */
+.prose {
+  max-width: none !important;
+  color: inherit !important;
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+.prose code::before,
+.prose code::after {
+  content: none !important;
+}
+
+/* Thinking bar animation */
+@keyframes thinking-wave {
+  0% { opacity: 0.4; transform: scaleY(0.6); }
+  50% { opacity: 1; transform: scaleY(1.2); }
+  100% { opacity: 0.4; transform: scaleY(0.6); }
+}
+
+/* Status indicators */
+.status-online {
+  animation: pulse 2s infinite;
+}
+
+/* Terminal cursor */
+.terminal-cursor {
+  animation: stream-cursor 1s infinite;
+}
+
+/* Toggle switch */
+.toggle-switch {
+  transition: background-color 0.2s ease;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow effects */
+.glow-blue {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.glow-purple {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+/* Resize handle */
+.resize-handle {
+  cursor: col-resize;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.resize-handle:hover {
+  opacity: 1;
+}
+
+/* Message bubble transitions */
+.message-bubble {
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* Code syntax highlighting overrides */
+.syntax-highlight {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* Neon theme glow effect */
+.theme-neon .accent-glow {
+  text-shadow: 0 0 8px #00ff88;
+}
+
+/* Selection highlight */
+::selection {
+  background: rgba(59, 130, 246, 0.3);
+}

@@ -1,0 +1,51 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../electron/generated/client"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Chat {
+  id        String    @id @default(uuid())
+  title     String
+  agent     String
+  createdAt DateTime  @default(now())
+  messages  Message[]
+}
+
+model Message {
+  id        String   @id @default(uuid())
+  role      String
+  content   String
+  timestamp DateTime @default(now())
+  agent     String?
+  model     String?
+  chatId    String
+  chat      Chat     @relation(fields: [chatId], references: [id], onDelete: Cascade)
+}
+
+model MemoryEntry {
+  id        String   @id @default(uuid())
+  key       String
+  value     String
+  source    String
+  createdAt DateTime @default(now())
+  tags      String
+  pinned    Boolean  @default(false)
+}
+
+model TerminalHistory {
+  id        String   @id @default(uuid())
+  command   String
+  output    String
+  timestamp DateTime @default(now())
+}
+
+model Setting {
+  id        String   @id @default(uuid())
+  key       String   @unique
+  value     String
+  updatedAt DateTime @default(now())
+}
