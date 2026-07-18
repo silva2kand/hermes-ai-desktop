@@ -1,0 +1,19 @@
+export const electronAPI = {
+  getStoreData: (key: string) => window.electronAPI.getStoreData(key),
+  setStoreData: (key: string, value: any) => window.electronAPI.setStoreData(key, value),
+  getSettings: () => window.electronAPI.getSettings(),
+  updateSettings: (settings: any) => window.electronAPI.updateSettings(settings),
+  detectLocalModels: () => window.electronAPI.detectLocalModels(),
+  executeTerminalCommand: (cmd: string) => window.electronAPI.executeTerminalCommand(cmd),
+  readFile: (filePath: string) => window.electronAPI.readFile(filePath),
+  writeFile: (filePath: string, content: string) => window.electronAPI.writeFile(filePath, content),
+  listDirectory: (dirPath: string) => window.electronAPI.listDirectory(dirPath),
+  getFirstRun: () => window.electronAPI.getFirstRun(),
+  setFirstRun: (value: boolean) => window.electronAPI.setFirstRun(value),
+  downloadUpdate: () => window.electronAPI.downloadUpdate && window.electronAPI.downloadUpdate(),
+  quitAndInstall: () => window.electronAPI.quitAndInstall && window.electronAPI.quitAndInstall(),
+  onUpdateAvailable: (callback: any) => window.electronAPI.onUpdateAvailable(callback),
+  onUpdateProgress: (callback: any) => window.electronAPI.onUpdateProgress(callback),
+  onUpdateDownloaded: (callback: any) => window.electronAPI.onUpdateDownloaded(callback),
+  removeListener: (channel: string) => window.electronAPI.removeListener(channel)
+};
